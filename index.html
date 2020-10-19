@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+<body>  
+
+
+  <script type="text/x-handlebars" data-template-name="login">
+    <div class="container" style="width:350px; margin-top:50px"> 
+    <h3>Ember test App</h3>
+    <div class="form-group">
+      <label for="usr">Username:</label>
+      {{input type="text" value=username class="form-control"placeholder="Enter username"}}
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      {{input type="password" value=password class="form-control" placeholder="Enter password"}}
+    </div>
+    <button type="submit" {{action "onLogin"}} class="btn btn-primary">Sumnit</button> 
+
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="home/index"> 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> 
+            New user Details
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputFullName">Full name </label>
+              <input type="text" id="name" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputUsername">Username</label>
+              <input type="text" id="username" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" id="email" class="form-control" />
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPhone">Phone</label>
+              <input type="text" id="phone" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputWebsite">Website</label>
+              <input type="text" id="website" class="form-control" />
+            </div>
+            <button class="btn btn-primary" data-dismiss="modal">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer" style="display:none">
+          <button type="button" class="btn btn-secondary btn-model-close" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">New user</button>
+    <br/><br/> 
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Username</th> 
+          <th scope="col">Email</th> 
+          <th scope="col">Phone</th> 
+          <th scope="col">Website</th> 
+          <th scope="col" style="text-align:center">Actions</th> 
+        </tr>
+      </thead>
+      <tbody> 
+        {{#each user in model itemController="user"}} 
+        <tr>
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.name}} </td>
+          <td>{{user.name}}</td> 
+          <td>{{user.email}} </td>
+          <td>{{user.phone}}</td> 
+          <td>{{user.website}}</td> 
+          <td> 
+            <button class="btn btn-info">Edit</button>
+            <button class="btn btn-danger" {{action "onDelete" }}>Delete</button>
+
+          </td> 
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="home/user-detail">
+    <h4>Whis is new route</h4>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="home"> 
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          {{#link-to "home.index" activeClass="selected"}}Home{{/link-to}}  
+        </li>
+        <li class="breadcrumb-item"> 
+          {{#link-to "home.user-detail" activeClass="selected"}}User Details{{/link-to}}    
+        </li> 
+      </ol>
+    </nav> 
+    {{outlet}}
+  </script>
+
+  <!-- ... additional lines truncated for brevity ... -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script src="libs/jquery-1.11.2.min.js"></script>
+  <script src="libs/handlebars-v1.3.0.js"></script>
+  <script src="libs/ember.js"></script>
+  <script src="libs/ember-data.js"></script> 
+  <script src="app.js"></script>
+
+  <!--Invoke all Routes -->
+  <script src="./routers/home_route.js"></script>
+  <script src="./routers/login_route.js"></script>
+
+  <!--Invoke all Controller -->
+  <script src="./controllers/login_controller.js"></script>
+  <script src="./controllers/user_controller.js"></script>
+  <script src="./controllers/users_controller.js"></script>
+
+  <!--Invoke all models -->
+  <script src="./models/user.js"></script>
+
+
+
+
+</body>
+</html>

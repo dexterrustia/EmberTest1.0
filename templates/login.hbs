@@ -1,0 +1,14 @@
+<script type="text/x-handlebars" data-template-name="login">
+    <div class="container" style="width:350px; margin-top:50px"> 
+    <h3>Ember test App</h3>
+    <div class="form-group">
+      <label for="usr">username:</label>
+      {{input type="text" value=username class="form-control"placeholder="Enter username"}}
+    </div>
+    <div class="form-group">
+      <label for="pwd">password:</label>
+      {{input type="password" value=password class="form-control" placeholder="Enter password"}}
+    </div>
+    <button type="submit" {{action "onLogin"}} class="btn btn-primary">Sumnit</button>  
+    </div>
+  </script>
