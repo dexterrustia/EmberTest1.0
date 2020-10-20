@@ -1,0 +1,9 @@
+.edit-empty-textbox {
+  box-shadow: 1px 1px 3px red, -1px -1px 3px red;
+}
+.edit-error-message {
+  color: red;
+  position: absolute;
+  margin-top: -67px;
+  margin-left: 45px;
+}
