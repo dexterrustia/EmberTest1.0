@@ -7,7 +7,7 @@ App.LoginController = Ember.Controller.extend({
       //just for testing
       if(this.username === "username" && this.password === "password"){
         console.log('Login successful!')
-        this.transitionTo('/')
+        this.transitionToRoute('/')
       }
     }
   }

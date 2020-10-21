@@ -7,3 +7,9 @@
   margin-top: -67px;
   margin-left: 45px;
 }
+tr {
+  cursor: pointer;
+}
+/* tr:hover {
+  background: rgb(80 45 45 / 29%);
+} */

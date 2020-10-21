@@ -3,14 +3,31 @@ App = Ember.Application.create();
 //defining routes
 App.Router.map(function(){ 
   this.route('login',{path: '/login'}); 
-  this.resource('home',{path: '/'},function(){
-    this.route('user-detail')
-  }) 
+  this.resource('home',{path: '/'},function(){ 
+    this.resource('user-detail',{path: '/user-detail/:id'},function(){
+      this.route('post')
+    })
+  })
+   
 }) 
+//Override fixture query
+DS.FixtureAdapter.reopen({
+  queryFixtures: function(records, query, type) {        
+      return records.filter(function(record) {
+          for(var key in query) {
+              if (!query.hasOwnProperty(key)) { continue; }
+              var value = query[key];
+              if (record[key] !== value) { return false; }
+          }
+          return true;
+      });
+  }
+});
 
 App.ApplicationAdapter = DS.FixtureAdapter.extend({
-  namespace: 'Fixture'
-})
+  revision: 12,
+  adapter: 'DS.FixtureAdapter'
+}); 
 
 // //Adapters
 // App.ApplicationAdapter = DS.RESTAdapter.extend({

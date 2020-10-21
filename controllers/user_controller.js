@@ -40,5 +40,10 @@ App.UserController = Ember.ObjectController.extend({
         }
 
     },
+    viewPost: function(){ 
+      const userId = this.get('model.id');
+      console.log(`userid : ${userId}`); 
+      this.transitionToRoute(`/user-detail/${userId}`)
+    }
   }
 })
