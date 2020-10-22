@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dexterrustia/EmberTest1.0/issues"
   },
-  "homepage": "https://github.com/dexterrustia/EmberTest1.0#readme"
+  "homepage": "https://github.com/dexterrustia/EmberTest1.0#readme",
+  "dependencies": {
+    "hbs": "^4.1.1"
+  }
 }

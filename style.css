@@ -10,6 +10,15 @@
 tr {
   cursor: pointer;
 }
-/* tr:hover {
-  background: rgb(80 45 45 / 29%);
-} */
+tbody tr:hover {
+  background: #b2b2b2 !important;
+}
+.card-post {
+  margin-bottom: 10px;
+}
+.post-profile-pic {
+  width: 100%;
+}
+.card-post-title {
+  padding: 5px;
+}

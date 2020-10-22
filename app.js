@@ -5,7 +5,9 @@ App.Router.map(function(){
   this.route('login',{path: '/login'}); 
   this.resource('home',{path: '/'},function(){ 
     this.resource('user-detail',{path: '/user-detail/:id'},function(){
-      this.route('post')
+      this.route('post');
+      this.route('photos');
+      this.route('albums');
     })
   })
    

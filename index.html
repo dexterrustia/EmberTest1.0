@@ -149,21 +149,45 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="user-detail">
-    <div class="row">
-      <div class="col-sm-4">
-        {{user-detail user=model.user}} 
-        
-        <div class="btn-group btn-group-lg">
-          <button type="button" class="btn">post</button>
-          <button type="button" class="btn">photos</button>
-          <button type="button" class="btn">albums</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"> 
+          {{user-detail user=model.user}} 
+
+          <div class="btn-group btn-group-lg">
+            <button type="button" class="btn" {{action "buttonhandler" 0}} >post</button>
+            <button type="button" class="btn" {{action "buttonhandler" 1}} >photos</button>
+            <button type="button" class="btn" {{action "buttonhandler" 2}} >albums</button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          {{outlet}}
+        </div>
+        <div class="col-sm-2">
+          some side content
+          some side content
+          some side content
+          some side content
         </div>
       </div>
-      <div class="col-sm-10">
-        {{outlet}}
-      </div>
     </div>
-    
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="user-detail/post">
+    {{new-post}}
+
+    {{#each post in model}} 
+      {{post-item post=post}}
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="user-detail/photos">
+    <h2>this is the photos Template</h2>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="user-detail/albums">
+    <h2>this is the albums Template</h2>
+
   </script>
 
   <!-- ... COMPONENTS BELOW  ... -->
@@ -195,6 +219,38 @@
     </div>
   </script>
 
+  <script type="text/x-handlebars" id="components/post-item">
+    <div class="card card-post">
+      <div class="row">
+        <div class="col-sm-2">
+          <img 
+            src="https://www.worldfuturecouncil.org/wp-content/uploads/2020/02/dummy-profile-pic-300x300-1.png" 
+            class="post-profile-pic"/>
+        </div>
+        <div class="col-sm-*"> 
+          {{post.userId.name}}
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+      </div>
+      <h5 class="card-title card-post-title">{{post.title}}</h5>  
+      <div class="card-body">
+        {{post.body}}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="components/new-post">
+    <div class="card card-post">
+      <input type="text" placeholder="Enter post title" />
+      <div class="card-body">
+        <textarea placeholder="Enter post description" rows="4" style="width:100%"></textarea> 
+      </div>
+      <button class="btn-primary">Add Post</button>
+    </div>
+  </script>
+
 
 
   <!-- ... additional lines truncated for brevity ... -->
@@ -220,8 +276,7 @@
 
   <!--Invoke all models -->
   <script src="./models/user.js"></script>
-  <script src="./models/post.js"></script>
-
+  <script src="./models/post.js"></script> 
 
 
 
