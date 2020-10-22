@@ -22,3 +22,9 @@ tbody tr:hover {
 .card-post-title {
   padding: 5px;
 }
+.post-dropdown {
+  display: none;
+}
+.card-post:hover .post-dropdown {
+  display: inline;
+}

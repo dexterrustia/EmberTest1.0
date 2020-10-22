@@ -80,7 +80,7 @@
                 {{input type="text" id="website" class="form-control" value=website key-press="handleChange"}}
               </div>
               <button 
-                class="btn btn-primary" 
+                class="btn btn-primary btn-block" 
                 data-dismiss="modal" 
                 {{action "create"}}
                 {{bind-attr disabled=isFormInvalid}}>Submit</button>
@@ -227,10 +227,18 @@
             src="https://www.worldfuturecouncil.org/wp-content/uploads/2020/02/dummy-profile-pic-300x300-1.png" 
             class="post-profile-pic"/>
         </div>
-        <div class="col-sm-*"> 
+        <div class="col-sm-8"> 
           {{post.userId.name}}
         </div>
         <div class="col-sm-2">
+          <div class="dropdown float-right post-dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Edit</a>
+              <a class="dropdown-item" href="#">Delete</a> 
+            </div>
+          </div>
 
         </div>
       </div>
@@ -269,10 +277,12 @@
   <script src="./routers/login_route.js"></script>
 
   <!--Invoke all Controller -->
-  <script src="./controllers/login_controller.js"></script>
-  <script src="./controllers/user_controller.js"></script>
-  <script src="./controllers/users_controller.js"></script>
-  <script src="./controllers/user_detail_controller.js"></script>
+  <script src="./controllers/login.js"></script>
+  <script src="./controllers/user.js"></script>
+  <script src="./controllers/users.js"></script>
+  <script src="./controllers/user_detail.js"></script>
+  <script src="./controllers/post.js"></script>
+  <script src="./controllers/posts.js"></script>
 
   <!--Invoke all models -->
   <script src="./models/user.js"></script>
