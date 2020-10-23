@@ -16,13 +16,8 @@ App.UserDetailRoute = Ember.Route.extend({
   model: function(params) {
     const { id } = params; 
     const user = this.store.find('user',id);
-    const post = this.store.find('post'); 
-    console.log(post);
-    console.log(user);
-    return { 
-      user, 
-      post
-    }
+    const post = this.store.find('post');  
+    return { user, post }
   },  
 })
 
@@ -30,9 +25,8 @@ App.UserDetailPostRoute = Ember.Route.extend({
   controllerName: 'posts',
   model: function(){
     console.log('UserDetailPostRoute');
-    const { post } = this.modelFor('user-detail');
-    console.log(post)
-    return post
+    return { user, post } =this.modelFor('user-detail');  
   }
 
 })
+

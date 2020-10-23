@@ -10,24 +10,22 @@
     
 </head>
 <body>  
-
-  <!-- ... TEMPLATES BELOW  ... -->
-
+  <!-- TEMPLATE SECTIONS  -->
   <script type="text/x-handlebars" data-template-name="login">
-    <div class="container" style="width:350px; margin-top:50px"> 
-    <h3>Ember test App</h3>
-    <form action="" {{action "onLogin"}}> 
-      <div class="form-group">
-        <label for="usr">Username:</label>
-        {{input type="text" value=username class="form-control"placeholder="Enter username"}}
-      </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        {{input type="password" value=password class="form-control" placeholder="Enter password"}}
-      </div>
-      <button type="submit" class="btn btn-primary">Sumnit</button> 
-    </form>
-
+    <div class="container" style="width:350px; margin-top:50px">
+      <h3>Ember test App</h3>
+      <form action="" {{action "onLogin"}}>
+        <div class="form-group">
+          <label for="usr">Username:</label>
+          {{input type="text" value=username class="form-control"placeholder="Enter username"}}
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          {{input type="password" value=password class="form-control" placeholder="Enter password"}}
+        </div>
+        <button type="submit" class="btn btn-primary">Sumnit</button>
+      </form>
+    
     </div>
   </script>
 
@@ -42,13 +40,13 @@
     {{outlet}}
   </script>  
 
-  <script type="text/x-handlebars" data-template-name="home/index"> 
+  <script type="text/x-handlebars" data-template-name="home/index">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"> 
+            <h5 class="modal-title" id="exampleModalLabel">
               New user Details
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -60,7 +58,7 @@
               <div class="form-group">
                 <label for="exampleInputFullName">Full name </label>
                 {{input type="text" id="name" class="form-control" value=name 
-                key-press="handleChange"}}
+                    key-press="handleChange"}}
               </div>
               <div class="form-group">
                 <label for="exampleInputUsername">Username</label>
@@ -79,10 +77,7 @@
                 <label for="exampleInputWebsite">Website</label>
                 {{input type="text" id="website" class="form-control" value=website key-press="handleChange"}}
               </div>
-              <button 
-                class="btn btn-primary btn-block" 
-                data-dismiss="modal" 
-                {{action "create"}}
+              <button class="btn btn-primary btn-block" data-dismiss="modal" {{action "create"}}
                 {{bind-attr disabled=isFormInvalid}}>Submit</button>
             </form>
           </div>
@@ -96,53 +91,55 @@
 
 
 
-    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">New user</button>
-    <br/><br/> 
+    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">New
+      user</button>
+    <br /><br />
+    <span>NOTE: double click on table row</span>
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th class="th-sm">#</th>
           <th class="th-sm">Name</th>
-          <th class="th-sm">Username</th> 
-          <th class="th-sm">Email</th> 
-          <th class="th-sm">Phone</th> 
-          <th class="th-sm">Website</th> 
-          <th class="th-sm" style="text-align:center">Actions</th> 
+          <th class="th-sm">Username</th>
+          <th class="th-sm">Email</th>
+          <th class="th-sm">Phone</th>
+          <th class="th-sm">Website</th>
+          <th class="th-sm" style="text-align:center">Actions</th>
         </tr>
       </thead>
-      <tbody> 
-        {{#each user in model itemController="user"}} 
-          {{#if user.isEditing}} 
-            <tr> 
-              <div class="edit-error-message">{{user.editingErrorMessage}}</div>
-              <th scope="row">{{user.id}}</th>
-              <td> {{input type="text" id="name1" class="form-control " value=user.name }} </td>
-              <td> {{input type="text" id="username1" class="form-control" value=user.username}} </td> 
-              <td> {{input type="email" id="email1" class="form-control" value=user.email}} </td>
-              <td> {{input type="text" id="phone1" class="form-control" value=user.phone}} </td> 
-              <td> {{input type="text" id="website1" class="form-control" value=user.website}} </td> 
-              <td style="text-align:center"> 
-                <button class="btn btn-primary" {{action "saveChanges"}}>Done</button>
-                <button class="btn btn-dark" {{action "onEdit" false}}>Cancel</button>
-    
-              </td>  
-            </tr>
-          {{else}}
-            <tr {{action "viewPost" on="doubleClick"}} class="table-row-item">
-              <th scope="row">{{user.id}}</th>
-              <td>{{user.name}} </td>
-              <td>{{user.username}}</td> 
-              <td>{{user.email}} </td>
-              <td>{{user.phone}}</td> 
-              <td>{{user.website}}</td> 
-              <td style="text-align:center"> 
-                <button class="btn btn-info" {{action "onEdit" true}}>Edit</button>
-                <button class="btn btn-danger" {{action "onDelete" }}>Delete</button>
-    
-              </td> 
-            </tr>
-          {{/if}}
-        
+      <tbody>
+        {{#each user in model itemController="user"}}
+        {{#if user.isEditing}}
+        <tr>
+          <div class="edit-error-message">{{user.editingErrorMessage}}</div>
+          <th scope="row">{{user.id}}</th>
+          <td> {{input type="text" id="name1" class="form-control " value=user.name }} </td>
+          <td> {{input type="text" id="username1" class="form-control" value=user.username}} </td>
+          <td> {{input type="email" id="email1" class="form-control" value=user.email}} </td>
+          <td> {{input type="text" id="phone1" class="form-control" value=user.phone}} </td>
+          <td> {{input type="text" id="website1" class="form-control" value=user.website}} </td>
+          <td style="text-align:center">
+            <button class="btn btn-primary" {{action "saveChanges"}}>Done</button>
+            <button class="btn btn-dark" {{action "onEdit" false}}>Cancel</button>
+
+          </td>
+        </tr>
+        {{else}}
+        <tr {{action "viewPost" on="doubleClick"}} class="table-row-item">
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.name}} </td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}} </td>
+          <td>{{user.phone}}</td>
+          <td>{{user.website}}</td>
+          <td style="text-align:center">
+            <button class="btn btn-info" {{action "onEdit" true}}>Edit</button>
+            <button class="btn btn-danger" {{action "onDelete" }}>Delete</button>
+
+          </td>
+        </tr>
+        {{/if}}
+
         {{/each}}
       </tbody>
     </table>
@@ -153,7 +150,7 @@
       <div class="row">
         <div class="col-sm-4"> 
           {{user-detail user=model.user}} 
-
+  
           <div class="btn-group btn-group-lg">
             <button type="button" class="btn" {{action "buttonhandler" 0}} >post</button>
             <button type="button" class="btn" {{action "buttonhandler" 1}} >photos</button>
@@ -174,23 +171,24 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="user-detail/post">
-    {{new-post}}
+    {{new-post newTitle=newTitle newBody=newBody action="createPost"}}
 
-    {{#each post in model}} 
-      {{post-item post=post}}
+    {{#each post in model.post itemController="post"}} 
+      {{post-item post=post onDeletePost="deletePost" onEditPost="editPost"}}
     {{/each}}
   </script>
 
+  <script type="text/x-handlebars" data-template-name="user-detail/albums">
+    <h2>this is the albums Template</h2> 
+  </script>
+  
   <script type="text/x-handlebars" data-template-name="user-detail/photos">
     <h2>this is the photos Template</h2>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="user-detail/albums">
-    <h2>this is the albums Template</h2>
 
-  </script>
 
-  <!-- ... COMPONENTS BELOW  ... -->
+  <!-- COMPONENT SECTIONS  -->
 
   <script type="text/x-handlebars" id="components/user-detail">
     <div class="container">
@@ -215,7 +213,7 @@
         <div class="col-sm-3"><strong>website</strong></div>
         <div class="col-sm-8">{{user.website}}</div>
       </div>
-
+  
     </div>
   </script>
 
@@ -235,11 +233,11 @@
             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Edit</a>
-              <a class="dropdown-item" href="#">Delete</a> 
+              <a class="dropdown-item" {{action "editPost"}}>Edit</a>
+              <a class="dropdown-item" {{action "deletePost"}}>Delete</a> 
             </div>
           </div>
-
+  
         </div>
       </div>
       <h5 class="card-title card-post-title">{{post.title}}</h5>  
@@ -251,13 +249,21 @@
 
   <script type="text/x-handlebars" id="components/new-post">
     <div class="card card-post">
-      <input type="text" placeholder="Enter post title" />
-      <div class="card-body">
-        <textarea placeholder="Enter post description" rows="4" style="width:100%"></textarea> 
-      </div>
-      <button class="btn-primary">Add Post</button>
+      <form action="createPost">
+        {{input type="text" placeholder="Enter post title" class="form-control" value=newTitle}}
+        <div class="card-body">
+          {{textarea placeholder="Enter post description" rows="4" class="form-control" value=newBody}}
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Add Post</button>
+
+      </form>
+      
     </div>
   </script>
+
+ 
+
+
 
 
 
@@ -287,6 +293,10 @@
   <!--Invoke all models -->
   <script src="./models/user.js"></script>
   <script src="./models/post.js"></script> 
+
+  <!-- Invoke all component class -->
+  <script src='./components/new-post-class.js'></script>
+  <script src='./components/post-item-class.js'></script>
 
 
 

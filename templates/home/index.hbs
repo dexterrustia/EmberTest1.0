@@ -1,0 +1,103 @@
+<script type="text/x-handlebars" data-template-name="home/index">
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          New user Details
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputFullName">Full name </label>
+            {{input type="text" id="name" class="form-control" value=name 
+                key-press="handleChange"}}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputUsername">Username</label>
+            {{input type="text" id="username" class="form-control" value=username key-press="handleChange"}}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            {{input type="email" id="email" class="form-control" value=email key-press="handleChange"}}
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPhone">Phone</label>
+            {{input type="text" id="phone" class="form-control" value=phone key-press="handleChange"}}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputWebsite">Website</label>
+            {{input type="text" id="website" class="form-control" value=website key-press="handleChange"}}
+          </div>
+          <button class="btn btn-primary btn-block" data-dismiss="modal" {{action "create"}}
+            {{bind-attr disabled=isFormInvalid}}>Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer" style="display:none">
+        <button type="button" class="btn btn-secondary btn-model-close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">New
+  user</button>
+<br /><br />
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th class="th-sm">#</th>
+      <th class="th-sm">Name</th>
+      <th class="th-sm">Username</th>
+      <th class="th-sm">Email</th>
+      <th class="th-sm">Phone</th>
+      <th class="th-sm">Website</th>
+      <th class="th-sm" style="text-align:center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each user in model itemController="user"}}
+    {{#if user.isEditing}}
+    <tr>
+      <div class="edit-error-message">{{user.editingErrorMessage}}</div>
+      <th scope="row">{{user.id}}</th>
+      <td> {{input type="text" id="name1" class="form-control " value=user.name }} </td>
+      <td> {{input type="text" id="username1" class="form-control" value=user.username}} </td>
+      <td> {{input type="email" id="email1" class="form-control" value=user.email}} </td>
+      <td> {{input type="text" id="phone1" class="form-control" value=user.phone}} </td>
+      <td> {{input type="text" id="website1" class="form-control" value=user.website}} </td>
+      <td style="text-align:center">
+        <button class="btn btn-primary" {{action "saveChanges"}}>Done</button>
+        <button class="btn btn-dark" {{action "onEdit" false}}>Cancel</button>
+
+      </td>
+    </tr>
+    {{else}}
+    <tr {{action "viewPost" on="doubleClick"}} class="table-row-item">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.name}} </td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}} </td>
+      <td>{{user.phone}}</td>
+      <td>{{user.website}}</td>
+      <td style="text-align:center">
+        <button class="btn btn-info" {{action "onEdit" true}}>Edit</button>
+        <button class="btn btn-danger" {{action "onDelete" }}>Delete</button>
+
+      </td>
+    </tr>
+    {{/if}}
+
+    {{/each}}
+  </tbody>
+</table>
+</script>

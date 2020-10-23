@@ -1,0 +1,9 @@
+<script type="text/x-handlebars" id="components/new-post">
+  <div class="card card-post" controller="posts">
+    {{input type="text" placeholder="Enter post title" value=newTitle}}
+    <div class="card-body">
+      {{textarea placeholder="Enter post description" rows="4" style="width:100%" value=newBody}}
+    </div>
+    <button class="btn-primary" {{action "createPost"}}>Add Post</button>
+  </div>
+</script>

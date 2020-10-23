@@ -1,6 +1,8 @@
-App.UsersController = Ember.Controller.extend({ 
-
+App.UsersController = Ember.ArrayController.extend({ 
+  sortProperty : ['name','username'], 
+  sortAscending : false,
   isFormInvalid: true, 
+
   actions: { 
     create: function(){
       const users = this.store.createRecord('user',{
@@ -9,9 +11,7 @@ App.UsersController = Ember.Controller.extend({
         email : this.get('email'),
         phone : this.get('phone'),
         website : this.get('website'),
-      })
-      const tecst = this.get('name');
-      console.log(tecst);
+      }) 
       this.set('name','');
       this.set('username','');
       this.set('email','');

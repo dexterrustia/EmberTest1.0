@@ -1,0 +1,7 @@
+<script type="text/x-handlebars" data-template-name="user-detail/post">
+    {{new-post newTitle=newTitle newBody=newBody createPost=createPost}}
+
+    {{#each post in model itemController="post"}} 
+      {{post-item post=post}}
+    {{/each}}
+  </script>

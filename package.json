@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dexterrustia/EmberTest1.0#readme",
   "dependencies": {
+    "handlebars": "^4.7.6",
     "hbs": "^4.1.1"
   }
 }

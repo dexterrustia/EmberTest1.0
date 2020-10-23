@@ -1,0 +1,29 @@
+<script type="text/x-handlebars" id="components/post-item">
+  <div class="card card-post">
+    <div class="row">
+      <div class="col-sm-2">
+        <img 
+          src="https://www.worldfuturecouncil.org/wp-content/uploads/2020/02/dummy-profile-pic-300x300-1.png" 
+          class="post-profile-pic"/>
+      </div>
+      <div class="col-sm-8"> 
+        {{post.userId.name}}
+      </div>
+      <div class="col-sm-2">
+        <div class="dropdown float-right post-dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Edit</a>
+            <a class="dropdown-item" href="#">Delete</a> 
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <h5 class="card-title card-post-title">{{post.title}}</h5>  
+    <div class="card-body">
+      {{post.body}}
+    </div>
+  </div>
+</script>

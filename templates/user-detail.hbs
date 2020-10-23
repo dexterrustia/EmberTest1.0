@@ -1,0 +1,24 @@
+<script type="text/x-handlebars" data-template-name="user-detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4"> 
+        {{user-detail user=model.user}} 
+
+        <div class="btn-group btn-group-lg">
+          <button type="button" class="btn" {{action "buttonhandler" 0}} >post</button>
+          <button type="button" class="btn" {{action "buttonhandler" 1}} >photos</button>
+          <button type="button" class="btn" {{action "buttonhandler" 2}} >albums</button>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        {{outlet}}
+      </div>
+      <div class="col-sm-2">
+        some side content
+        some side content
+        some side content
+        some side content
+      </div>
+    </div>
+  </div>
+</script>
