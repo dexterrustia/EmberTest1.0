@@ -1,5 +1,8 @@
 App = Ember.Application.create(); 
 
+//
+//Ember.TEMPLATE[''] = Ember.handlebars.compile(data)
+
 //defining routes
 App.Router.map(function(){ 
   this.route('login',{path: '/login'}); 

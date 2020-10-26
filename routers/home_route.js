@@ -23,9 +23,8 @@ App.UserDetailRoute = Ember.Route.extend({
 
 App.UserDetailPostRoute = Ember.Route.extend({
   controllerName: 'posts',
-  model: function(){
-    console.log('UserDetailPostRoute');
-    return { user, post } =this.modelFor('user-detail');  
+  model: function(){ 
+    return { user, post } = this.modelFor('user-detail');  
   }
 
 })

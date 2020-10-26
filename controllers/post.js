@@ -2,9 +2,10 @@ App.PostController = Ember.ObjectController.extend({
   actions:{
     deletePost: function(){
       console.log('deletePost is fired!');
-      const posts = this.get('model.post');
-      posts.destroyRecord();
-      posts.save();
+      const post = this.get('model');
+      post.deleteRecord();
+      post.save();
+      console.log(post) 
     },
     editPost: function(){
       console.log('editPost is fired')
